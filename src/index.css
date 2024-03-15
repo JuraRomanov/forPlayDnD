@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    max-width: 100vw;
+    width: 100%;      
+    height: 100vh; 
+    
+    
+  }
+  
+  * , *::after , *::before { 
+    box-sizing: border-box;
+  }
+
+
+
+/* global style  */
+
+
+.link { 
+  text-decoration: none;
+  cursor: pointer;
+  transition: all  .2s linear;
+  
+}
+
+
+
+
+

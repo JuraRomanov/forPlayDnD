@@ -1,0 +1,41 @@
+/* box--login-register  and form */
+
+
+.box--login-register{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.box--login-register input{
+    background: none;
+    border-color : rgba(0, 0,0,0);
+    border-bottom: 1px solid #fff;
+    padding: 5px;
+    color:#fff;
+    transition: 0.3 linear;
+}
+
+
+.box--login-register input::placeholder{
+    color:#fff;
+    
+}
+
+
+.box--login-register input:focus{
+    outline: 0;
+    color:#fff;
+
+}
+
+
+/* button */
+
+.btn{ 
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid;
+    padding: 5px;
+}

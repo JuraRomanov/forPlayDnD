@@ -1,0 +1,10 @@
+body{ 
+    background: url('./source/bg2.jpg');
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+.main{ 
+    margin: 0 auto;
+    padding: 20px;
+}
