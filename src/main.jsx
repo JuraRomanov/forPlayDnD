@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
 import { store } from './store'
 import './firebase' ; 
+import CreatePersonPage from './pages/PersonsPages/CreatePage/CreatePersonPage'
 
 const  roter  = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const  roter  = createBrowserRouter([
     path:"/register" , 
     element: <RegisterPage/>,
   },
+  {
+    path:'/createPerson' , 
+    element : <CreatePersonPage/>
+  }
 
 ], {basename:"/forPlayDnD"})
 ReactDOM.createRoot(document.getElementById('root')).render(
