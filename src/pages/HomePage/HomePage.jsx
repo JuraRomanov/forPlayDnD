@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate  } from 'react-router-dom'
+import { Link, useNavigate  } from 'react-router-dom'
 import { useEffect } from 'react';
 import {useAuth} from "../../hooks/use-auth"
 import { removeUser, setUser } from '../../store/slices/userSlice';
@@ -14,7 +14,7 @@ function HomePage() {
 
   
   let navigate = useNavigate() ; 
-  const {isAuth,email}= useAuth()  ; 
+  const {isAuth,email,id}= useAuth()  ; 
   const dispatch = useDispatch() ;
 
   
@@ -25,23 +25,18 @@ function HomePage() {
       } 
     }
   )
-  const  {data = [] , isLoading} = useGetAllUrlQuery() ; 
 
   const hendleClicl= () => {
     dispatch(removeUser()) ; 
   }
 
-  if(isLoading) { 
-    return (<h1> Loading </h1>)
-  }
+ 
   
   return (  
     <div className='main'>
       <Header/>
       {
-        Object.keys(data).map(item => (
-          <li key={item} > {`${item}: ${data[item]}`} </li>
-        ))
+        <Link to={`/${id}/newHero/start`}> создать персонажа</Link>
       }
     </div>
   )

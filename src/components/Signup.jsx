@@ -35,9 +35,9 @@ const Signup = () => {
       localStorage.isUser = JSON.stringify({email: email , id : user.uid , token : user.accessToken}) ; 
 
 
-      navigate("/") ; 
+      navigate(`/${user.id}`) ; 
     })
-    // .catch(alert("Аккаунт уже зарегистрирован"))
+    
     
 } ; 
   return (

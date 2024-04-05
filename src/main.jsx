@@ -8,17 +8,26 @@ import {Provider} from "react-redux"
 import HomePage from './pages/HomePage/HomePage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
-import CreatePersonPage from './pages/CreatePersonPage/CreatePersonPage'
-
+import NewHero from './pages/NewHero/NewHero'
 import { store } from './store'
 import './firebase' ; 
 
 
+
 const  roter  = createBrowserRouter([
   {
-  path:"/" , 
-  element : <HomePage/>
+    path:"/" , 
+    element : <LoginPage/> , 
   },
+  {
+  path:"/:id" , 
+  element : <HomePage/> , 
+  },
+  {
+    path: "/:userId/newhero/:step",
+    element :  <NewHero/>
+  },
+  
   {
     path:"/login" , 
     element: <LoginPage/>,
@@ -27,10 +36,8 @@ const  roter  = createBrowserRouter([
     path:"/register" , 
     element: <RegisterPage/>,
   },
-  {
-    path:"/createPerson" , 
-    element: <CreatePersonPage/>,
-  },
+  
+  
 
 ], {basename:"/forPlayDnD"})
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -39,3 +39,37 @@
     border: 1px solid;
     padding: 5px;
 }
+
+
+
+/* New hero */
+
+.new-hero__classes{ 
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    
+    padding: 1rem;
+}
+
+.new-hero__classes .buttons{ 
+    padding: 1rem;
+    border:1px solid; 
+
+}
+
+.new-hero__classes .buttons--active , .new-hero__classes .buttons:hover{ 
+    border-color : red ; 
+}
+
+.new-hero__attributs{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}

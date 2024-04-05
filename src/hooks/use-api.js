@@ -15,6 +15,6 @@ export function getDataFromAPI(url) {
     
     
 
-   return data['results'] ; 
+   return data  ; 
 
 }
