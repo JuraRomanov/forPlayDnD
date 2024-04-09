@@ -4,7 +4,7 @@ import { NewHeroWelcome,NewHeroRaces, NewHeroClasses,NewHeroAttributs} from "../
 export default {
     "start" : { 
         stepTitle : 'Добро пожаловать в конструктор персонажа' , 
-        components : <></> , 
+        components :<NewHeroWelcome/> , 
         nextStepsName : 'выбор расы' ,
         nextStepsUrl : 'heroRaces' , 
 

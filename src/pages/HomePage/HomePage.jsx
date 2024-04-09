@@ -36,7 +36,7 @@ function HomePage() {
     <div className='main'>
       <Header/>
       {
-        <Link to={`/${id}/newHero/start`}> создать персонажа</Link>
+        <Link to={`/${id}/newHero/start/${id}`}> создать персонажа</Link>
       }
     </div>
   )

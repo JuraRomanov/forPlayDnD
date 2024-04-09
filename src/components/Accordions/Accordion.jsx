@@ -9,11 +9,12 @@ function Accordion({url}) {
   let data = getDataFromAPI(url)['results'] ; 
 
   
- 
+  
+  
    
   return (
     <div className='accordion__box'> 
-    {(!!data)?Object.keys(data).map(item =>  <AccordionItem url={data[item].url}/> ) : "loading" } 
+    {(!!data)?Object.keys(data).map(item =>  <AccordionItem url={data[item].url} key={data[item].index}/> ) : "loading" } 
     </div>
     
   )

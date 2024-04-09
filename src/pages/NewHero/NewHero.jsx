@@ -1,16 +1,19 @@
 import React from 'react'
 import {useParams , Link } from 'react-router-dom'
-
+import {useDispatch,useSelector} from "react-redux" 
 import newHeroSteps from '../../data/newHeroSteps' 
 
 import './newHero.css'
+import { setHero } from '../../store/slices/heroSilce'
 
 
 function NewHero() {
 
-  let {step,userId} = useParams() ; 
+  let {step,userId,heroId} = useParams() ; 
   let {stepTitle , components ,nextStepsName , nextStepsUrl} = newHeroSteps[step]  ; 
   
+ 
+
   return (
     
     <div className="new-hero">
@@ -25,7 +28,7 @@ function NewHero() {
           </div>
           <div className="new-hero__footer">
                 <h3 >Следующий шаг <span className='step__next'>{`${nextStepsName}`}</span></h3>
-                <Link className="link" to={`/${userId}/newHero/${nextStepsUrl}`}> → </Link>
+                <Link className="link" to={`/${userId}/newHero/${nextStepsUrl}/${heroId}`}> → </Link>
           </div>
       </div>
     </div>

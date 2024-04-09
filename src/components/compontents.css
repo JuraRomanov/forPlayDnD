@@ -67,6 +67,15 @@
 
 .new-hero__attributs{ 
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.attributs__cont{ 
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;

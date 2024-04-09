@@ -24,7 +24,7 @@ const  roter  = createBrowserRouter([
   element : <HomePage/> , 
   },
   {
-    path: "/:userId/newhero/:step",
+    path: "/:userId/newhero/:step/:heroId",
     element :  <NewHero/>
   },
   
