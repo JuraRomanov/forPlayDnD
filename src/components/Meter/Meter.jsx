@@ -12,14 +12,14 @@ function Meter({CountName="" , startValue = 0  , handleClick}) {
         </div>
         <div className="meter__cont">
             <button onClick={() => {
-                if (count+1 >=0  && handleClick(-1)   ) { 
+                if (count+1 >=0  && handleClick(-1,CountName.toLowerCase())   ) { 
                     setCount(count+1); 
                 }
                 
             }}>+</button>
             <span className='meter__counter'>{count}</span>
             <button  onClick={() => {
-                if (count-1 >= 0 && handleClick(1)   ) { 
+                if (count-1 >= 0 && handleClick(1,CountName.toLowerCase())   ) { 
                     setCount(count-1);
                 }
             }}>-</button>

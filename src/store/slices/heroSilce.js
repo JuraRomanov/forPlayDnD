@@ -9,16 +9,10 @@ export const heroSlice = createSlice({
     reducers: { 
 
         setHero(state,action){ 
+           
+           const flag = state.filter(hero => hero.id == action.payload.heroId).length == 0 ; 
             
-            state.map(
-                hero => { 
-                    if(hero.id == action.payload.heroId){ 
-                        console.log('id ne unikalen')
-                        return ; 
-                    }
-                }
-            )
-
+           if (flag){ 
             state.push({
                 id : action.payload.heroId, 
                 heroData : { 
@@ -26,38 +20,40 @@ export const heroSlice = createSlice({
                     heroClass : '' , 
                     heroRace : '' ,
                     attributs :  { 
-                        'cha' : {
-                            sroce : 0 ,
+                            'cha' : {
+                            score : 0 ,
                             modificator : 0, 
                         }, 
                         'con' : {
-                            sroce : 0 ,
+                            score : 0 ,
                             modificator : 0, 
                         }, 
                         'dex' : {
-                            sroce : 0 ,
+                            score : 0 ,
                             modificator : 0, 
                         }, 
                         'int' : {
-                            sroce : 0 ,
+                            score : 0 ,
                             modificator : 0, 
                         }, 
                         'str' : {
-                            sroce : 0 ,
+                            score : 0 ,
                             modificator : 0, 
                         }, 
                         'wis' : {
-                            sroce : 0 ,
+                            score : 0 ,
                             modificator : 0, 
                         }, 
                     }
                 }
             })
-           
+           }
+          
+            
         } , 
 
         setParam(state,action) {
-            console.log(state.length);
+            
             state.map(item => { 
                     if (item.id == action.payload.heroId){ 
                         item.heroData[action.payload.whoSet]= action.payload[action.payload.whoSet];
