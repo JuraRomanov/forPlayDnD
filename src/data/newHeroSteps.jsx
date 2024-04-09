@@ -6,7 +6,7 @@ export default {
         stepTitle : 'Добро пожаловать в конструктор персонажа' , 
         components :<NewHeroWelcome/> , 
         nextStepsName : 'выбор расы' ,
-        nextStepsUrl : 'heroAttributs' , 
+        nextStepsUrl : 'heroRaces' , 
 
     } , 
 
@@ -29,7 +29,7 @@ export default {
     "heroAttributs" : { 
         stepTitle : 'Распределите очки персонажа', 
         components : <NewHeroAttributs/>, 
-        nextStepsName : 'start' ,
+        nextStepsName : 'end' ,
         nextStepsUrl : 'start' , 
     } , 
 

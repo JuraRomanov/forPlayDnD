@@ -57,7 +57,6 @@ export const heroSlice = createSlice({
             state.map(item => { 
                     if (item.id == action.payload.heroId){ 
                         item.heroData[action.payload.whoSet]= action.payload[action.payload.whoSet];
-                        console.log(item.heroData[action.payload.whoSet]);
                     }
             });
         },

@@ -1,5 +1,5 @@
 import React from 'react'
-import { setHero } from '../store/slices/heroSilce';
+import { setHero, setParam } from '../store/slices/heroSilce';
 import {useDispatch} from "react-redux";
 import {useParams} from "react-router-dom"; 
 function NewHeroWelcome() {
@@ -11,7 +11,7 @@ function NewHeroWelcome() {
 
   return (
     <div>
-      sad
+      <input type="text" onChange={(e) => (dispath(setParam({heroId , whoSet : 'name' , name : e.target.value.trim()})))}/>
     </div>
   )
 }
