@@ -10,56 +10,61 @@ export const heroSlice = createSlice({
 
         setHero(state,action){ 
            
-           const flag = state.filter(hero => hero.id == action.payload.heroId).length == 0 ; 
-            
-           if (flag){ 
-            state.push({
-                id : action.payload.heroId, 
-                heroData : { 
-                    name : '' , 
-                    heroClass : '' , 
+           const flag = state.filter(hero => !!hero[action.payload.heroId]).length == 0 ; 
+
+           if(flag) { 
+            state.push({ 
+                [action.payload.heroId]: {
+                    name: "" , 
+                    heroClass :'' , 
                     heroRace : '' ,
                     attributs :  { 
-                            'cha' : {
-                            score : 0 ,
-                            modificator : 0, 
-                        }, 
-                        'con' : {
-                            score : 0 ,
-                            modificator : 0, 
-                        }, 
-                        'dex' : {
-                            score : 0 ,
-                            modificator : 0, 
-                        }, 
-                        'int' : {
-                            score : 0 ,
-                            modificator : 0, 
-                        }, 
-                        'str' : {
-                            score : 0 ,
-                            modificator : 0, 
-                        }, 
-                        'wis' : {
-                            score : 0 ,
-                            modificator : 0, 
-                        }, 
-                    }
+                        'cha' : {
+                        score : 0 ,
+                        modificator : 0, 
+                    }, 
+                    'con' : {
+                        score : 0 ,
+                        modificator : 0, 
+                    }, 
+                    'dex' : {
+                        score : 0 ,
+                        modificator : 0, 
+                    }, 
+                    'int' : {
+                        score : 0 ,
+                        modificator : 0, 
+                    }, 
+                    'str' : {
+                        score : 0 ,
+                        modificator : 0, 
+                    }, 
+                    'wis' : {
+                        score : 0 ,
+                        modificator : 0, 
+                    }, 
+                }
                 }
             })
            }
-          
-            
+
+           
+           
+           
         } , 
 
         setParam(state,action) {
             
+            
             state.map(item => { 
-                    if (item.id == action.payload.heroId){ 
-                        item.heroData[action.payload.whoSet]= action.payload[action.payload.whoSet];
+                    
+                    if (!!item[action.payload.heroId]){ 
+                        item[action.payload.heroId][action.payload.whoSet]= action.payload[action.payload.whoSet];
                     }
             });
         },
+
+        
         removeHero(state){
             state.email = null , 
             state.token = null, 

@@ -2,11 +2,12 @@ import React from 'react'
 import { Link, useNavigate  } from 'react-router-dom'
 import { useEffect } from 'react';
 import {useAuth} from "../../hooks/use-auth"
-import { removeUser, setUser } from '../../store/slices/userSlice';
+import {writeInDatabase} from "../../hooks/use-dataBase"
+import { removeUser } from '../../store/slices/userSlice';
 import { useDispatch } from 'react-redux';
 import Header from '../../components/Header/Header';
 import "./homepage.css"
-import { useGetAllUrlQuery } from '../../store/slices/api';
+
 
 
 
@@ -17,6 +18,7 @@ function HomePage() {
   const {isAuth,email,id}= useAuth()  ; 
   const dispatch = useDispatch() ;
 
+
   
   useEffect(
     () => {    
@@ -26,11 +28,9 @@ function HomePage() {
     }
   )
 
-  const hendleClicl= () => {
-    dispatch(removeUser()) ; 
-  }
 
- 
+  writeInDatabase('11','11') ; 
+  
   
   return (  
     <div className='main'>

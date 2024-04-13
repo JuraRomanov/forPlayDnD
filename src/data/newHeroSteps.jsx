@@ -1,4 +1,4 @@
-import { NewHeroWelcome,NewHeroRaces, NewHeroClasses,NewHeroAttributs} from "../components";
+import { NewHeroWelcome,NewHeroRaces, NewHeroClasses,NewHeroAttributs,NewHeroFinish} from "../components";
 
 
 export default {
@@ -6,7 +6,7 @@ export default {
         stepTitle : 'Добро пожаловать в конструктор персонажа' , 
         components :<NewHeroWelcome/> , 
         nextStepsName : 'выбор расы' ,
-        nextStepsUrl : 'heroRaces' , 
+        nextStepsUrl : 'start' , 
 
     } , 
 
@@ -30,8 +30,16 @@ export default {
         stepTitle : 'Распределите очки персонажа', 
         components : <NewHeroAttributs/>, 
         nextStepsName : 'end' ,
-        nextStepsUrl : 'start' , 
+        nextStepsUrl : 'end' , 
     } , 
+
+    "end" : { 
+        stepTitle : 'Завершить создание персонажа', 
+        components : <NewHeroFinish/>, 
+        nextStepsName : 'start' ,
+        nextStepsUrl : 'start' , 
+    },
+
 
 
 }

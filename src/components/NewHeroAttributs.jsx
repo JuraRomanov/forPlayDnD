@@ -18,12 +18,12 @@ function NewHeroAttributs({score=40}) {
     
     let scores = useSelector(state => state.hero) ; 
 
-    scores = scores.filter(item => item.id == heroId);
+    scores = scores.filter(item =>item[heroId]);
 
 
     scores = JSON.parse(JSON.stringify(scores));
 
-    scores.map(item =>{scores=item.heroData.attributs})
+    scores.map(item =>{scores=item[heroId].attributs})
 
     
     
