@@ -12,11 +12,11 @@ const Login = () => {
     
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {isAuth} = useAuth() ; 
+    const {isAuth,id} = useAuth() ; 
     useEffect(() => 
     { 
       if (isAuth){ 
-        navigate("/"); 
+        navigate(`/${id}`) ; 
       }
     })
     const handleUser  = (email,password) => {
@@ -34,7 +34,7 @@ const Login = () => {
             localStorage.isUser = JSON.stringify({email: email , id : user.uid , token : user.accessToken}) ; 
             
 
-            navigate("/") ; 
+            navigate(`/${user.id}`) ; 
           })
         .catch(alert("Не верный логин или пароль"))
         

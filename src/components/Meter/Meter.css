@@ -1,0 +1,46 @@
+
+
+.meter__box{ 
+    
+    
+
+    display: flex;
+    flex-direction: column;
+
+   
+
+    border:1px solid gray;
+    
+}
+
+
+.meter__header{ 
+    padding: 1rem;
+   
+    border-bottom: 1px solid;
+
+}
+
+.meter__cont{ 
+    
+    display: flex;
+
+    flex-direction: row;
+
+    align-content: center;
+    justify-content:space-around;
+    
+    
+}
+
+.meter__cont span { 
+    
+    font-size: 17px;
+}
+
+.meter__cont span:not(:last-child) { 
+    
+    border-right: 1px solid;
+
+    font-size: 17px;
+}
