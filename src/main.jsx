@@ -8,7 +8,9 @@ import {Provider} from "react-redux"
 import HomePage from './pages/HomePage/HomePage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
-import NewHero from './pages/NewHero/NewHero'
+import NewHeroPage from './pages/NewHeroPage/NewHeroPage'
+
+
 import { store } from './store'
 import './firebase' ; 
 
@@ -20,14 +22,13 @@ const  roter  = createBrowserRouter([
     element : <LoginPage/> , 
   },
   {
-  path:"/:id" , 
+  path:"/:userId" , 
   element : <HomePage/> , 
   },
   {
-    path: "/:userId/newhero/:step/:heroId",
-    element :  <NewHero/>
+    path : "/:userId/newHero/:heroId",
+    element : <NewHeroPage/>
   },
-  
   {
     path:"/login" , 
     element: <LoginPage/>,

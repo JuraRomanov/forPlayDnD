@@ -1,7 +1,11 @@
-import {createSlice} from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
+
+
+
+
+
 
 const initialState = [];
-
 
 export const heroSlice = createSlice({
     name : 'hero' , 
@@ -9,43 +13,26 @@ export const heroSlice = createSlice({
     reducers: { 
 
         setHero(state,action){ 
-           
+          
            const flag = state.filter(hero => !!hero[action.payload.heroId]).length == 0 ; 
-
+           
            if(flag) { 
-            state.push({ 
-                [action.payload.heroId]: {
-                    name: "" , 
-                    heroClass :'' , 
-                    heroRace : '' ,
-                    attributs :  { 
-                        'cha' : {
-                        score : 0 ,
-                        modificator : 0, 
-                    }, 
-                    'con' : {
-                        score : 0 ,
-                        modificator : 0, 
-                    }, 
-                    'dex' : {
-                        score : 0 ,
-                        modificator : 0, 
-                    }, 
-                    'int' : {
-                        score : 0 ,
-                        modificator : 0, 
-                    }, 
-                    'str' : {
-                        score : 0 ,
-                        modificator : 0, 
-                    }, 
-                    'wis' : {
-                        score : 0 ,
-                        modificator : 0, 
-                    }, 
-                }
-                }
-            })
+                 
+                    state.push({ 
+                        [action.payload.heroId]: {
+                            name: "" , 
+                            heroClass :'' , 
+                            heroRace : '' ,
+                            cha : 0 , 
+                            con : 0 , 
+                            dex : 0 , 
+                            int : 0 , 
+                            str : 0 , 
+                            wis : 0 ,
+
+                        }
+                    })
+                
            }
 
            
@@ -64,17 +51,24 @@ export const heroSlice = createSlice({
             });
         },
 
-        
-        removeHero(state){
-            state.email = null , 
-            state.token = null, 
-            state.id = null ,  
-            delete localStorage.isUser 
-        } ,  
-    },
+        loadHero(state,action){ 
+            let flag = false ; 
+            state.map(item => { 
+                if (!!item[action.payload.heroId]){ 
+                    flag = true;
+                }
+            })
+            if (!flag){ 
+                state.push({
+                [action.payload.heroId]:action.payload.heroData
+            })
+            }
+            
+        },
+    }
 })
 
-export const {setHero , setParam , removeHero} = heroSlice.actions ; 
+export const {setHero , setParam, loadHero} = heroSlice.actions ; 
 
 export default heroSlice.reducer
 

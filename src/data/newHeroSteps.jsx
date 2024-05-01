@@ -6,7 +6,7 @@ export default {
         stepTitle : 'Добро пожаловать в конструктор персонажа' , 
         components :<NewHeroWelcome/> , 
         nextStepsName : 'выбор расы' ,
-        nextStepsUrl : 'start' , 
+        nextStepsUrl : 'heroRaces' , 
 
     } , 
 

@@ -4,14 +4,14 @@ import { getDataFromAPI } from '../hooks/use-api';
 import {useDispatch,useSelector} from "react-redux"; 
 import { setParam } from '../store/slices/heroSilce';
 import {useParams} from "react-router-dom"
-import { connectStorageEmulator } from 'firebase/storage';
+
 function NewHeroAttributs({score=40}) {
 
   
     const [totalScore , setTotalSroce] = useState(score);
 
     const abilites = getDataFromAPI('api/ability-scores')['results']; 
-
+    
     const {heroId}  = useParams(); 
     const dispasth = useDispatch(); 
 
@@ -20,28 +20,32 @@ function NewHeroAttributs({score=40}) {
 
     scores = scores.filter(item =>item[heroId]);
 
-
+    
     scores = JSON.parse(JSON.stringify(scores));
 
-    scores.map(item =>{scores=item[heroId].attributs})
+    scores.map(item =>{scores=item[heroId]})
+    
+    let mainScore = { 
+      cha : scores.cha , 
+      con : scores.con , 
+      dex : scores.dex , 
+      int : scores.int , 
+      str : scores.str , 
+      wis : scores.wis ,
+    };
 
     
-    
-    
-   
     const handleClick = (count , name) =>  {
       
-      if (totalScore+count <= score && totalScore+count>=0){ 
-        setTotalSroce(totalScore + count) ; 
+    if (totalScore+count <= score && totalScore+count>=0){ 
+      setTotalSroce(totalScore + count) ; 
        
-        
-        scores[name].score -=count; 
-        scores[name].modificator = (Math.floor((scores[name].score - 10) /2));
-        dispasth(setParam({heroId , whoSet: 'attributs' , attributs: scores}))
-        return true; 
-      }
-       return false;
-      }
+      mainScore[name] -=count; 
+      dispasth(setParam({heroId , whoSet: name , [name] : mainScore[name]}))
+      return true; 
+    }
+      return false;
+    }
 
     return (
       <div className='new-hero__attributs'>
