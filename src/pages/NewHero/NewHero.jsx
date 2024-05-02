@@ -28,7 +28,7 @@ function NewHero() {
           </div>
           <div className="new-hero__footer">
                 <h3 >Следующий шаг <span className='step__next'>{`${nextStepsName}`}</span></h3>
-                <Link className="link" to={`/${userId}/newHero/${nextStepsUrl}/${heroId}`}> → </Link>
+                <Link className="link" to={`/login`}> → </Link>
           </div>
       </div>
     </div>

@@ -11,6 +11,8 @@ import "./homepage.css"
 import {setHero, setParam,loadHero } from '../../store/slices/heroSilce';
 import { child, get, getDatabase, ref } from 'firebase/database';
 import {  loadHeroFromDB } from '../../hooks/use-dataBase';
+import Gallery from '../../components/Gallery/Gallery';
+
 
 
 
@@ -33,7 +35,7 @@ function HomePage() {
     if(!!!allData) { 
       return; 
     }
-    console.log(allData);
+    
     const herosId = Object.keys(allData) ;
     const heroData ={} ; 
     herosId.map(heroId => {
@@ -54,11 +56,9 @@ function HomePage() {
       <Header/>
       
       <div>
-         
+        
         { 
-          (!!hero && hero.length > 0 )? 
-          <Link to={`/${id}/newHero/${+Object.keys(hero[hero.length-1])+1}`}> Создать персонажа</Link>
-          : <Link to={`/${id}/newHero/0`}>Создать персонажа</Link>
+          (!!hero && hero.length > 0 )? <Gallery isAdd = {true} galleryData={hero} galleryName='галерея персонажей'/> : <Gallery isAdd = {true} galleryName='галерея персонажей'/>
         }
       </div>
     </div>
