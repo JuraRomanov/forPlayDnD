@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form__login_register } from './Form__login-register'
 import { useDispatch,useSelector} from 'react-redux'
 import {setUser} from "../store/slices/userSlice"
@@ -7,11 +7,11 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/use-auth';
 
 
-
 const Login = () => {
     
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
     const {isAuth,id} = useAuth() ; 
     useEffect(() => 
     { 
@@ -19,8 +19,10 @@ const Login = () => {
         navigate(`/${id}`) ; 
       }
     })
-    const handleUser  = (email,password) => {
-        const auth = getAuth();
+    async function  handleUser (email,password){
+       
+      const auth = getAuth();
+
         signInWithEmailAndPassword(auth, email, password)
         .then(({user}) => {
             
@@ -32,11 +34,13 @@ const Login = () => {
               
             }));
             localStorage.isUser = JSON.stringify({email: email , id : user.uid , token : user.accessToken}) ; 
-            
 
             navigate(`/${user.id}`) ; 
-          })
-        .catch(alert("Не верный логин или пароль"))
+            
+
+          }).catch(() => { 
+            alert('неверный логин или пароль')
+          })         
         
     } ; 
     return (
