@@ -11,8 +11,11 @@ import RegisterPage from './pages/RegisterPage/RegisterPage'
 import NewHeroPage from './pages/NewHeroPage/NewHeroPage'
 
 
+
 import { store } from './store'
 import './firebase' ; 
+
+import PreviewWindow from './components/PreviewWindow'
 
 
 
@@ -22,8 +25,14 @@ const  roter  = createBrowserRouter([
     element : <LoginPage/> , 
   },
   {
-  path:"/:userId" , 
-  element : <HomePage/> , 
+    path:"/:userId/" , 
+    element : <HomePage/> , 
+    children : [
+      { 
+        path : "preview/:heroId", 
+        element : <PreviewWindow/>
+      }
+    ]
   },
   {
     path : "/:userId/newHero/:heroId",

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate  } from 'react-router-dom'
+import { Link, Outlet, useNavigate  } from 'react-router-dom'
 import { useEffect } from 'react';
 import {useAuth} from "../../hooks/use-auth"
 
@@ -52,6 +52,7 @@ function HomePage() {
   
   return (  
     <div className='main'>
+      <Outlet/>
       <Header/>
       
       <div>
@@ -60,6 +61,8 @@ function HomePage() {
           (!!hero && hero.length > 0 )? <Gallery isAdd = {true} galleryData={hero} galleryName='галерея персонажей'/> : <Gallery isAdd = {true} galleryName='галерея персонажей'/>
         }
       </div>
+      <Link to = {`/${id}/preview/0`}> link </Link>
+      
     </div>
   )
 }

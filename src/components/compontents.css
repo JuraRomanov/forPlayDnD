@@ -41,44 +41,29 @@
 }
 
 
+/* preview */
 
-/* New hero */
 
-.new-hero__classes{ 
+.preview{ 
+    position: absolute; 
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
     
-    padding: 1rem;
+    width: 80%;
+    height: 80%;
+
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+    background-color: gainsboro;
+    box-shadow: 0px 1em 2em -1.5em rgba(0, 0, 0, 0.5);
+
+    z-index: 1;
+
 }
 
-.new-hero__classes .buttons{ 
-    padding: 1rem;
-    border:1px solid; 
-
-}
-
-.new-hero__classes .buttons--active , .new-hero__classes .buttons:hover{ 
-    border-color : red ; 
-}
-
-.new-hero__attributs{ 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.attributs__cont{ 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+.preview__cont { 
+    
 }
