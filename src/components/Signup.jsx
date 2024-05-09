@@ -20,7 +20,7 @@ const Signup = () => {
     })
 
 
-  const handleRegister  = (email,password) => {
+    async function handleRegister (email,password)  {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
     .then(({user}) => {
@@ -34,9 +34,8 @@ const Signup = () => {
       }))
       localStorage.isUser = JSON.stringify({email: email , id : user.uid , token : user.accessToken}) ; 
 
-
       navigate(`/${user.id}`) ; 
-    })
+    }).catch(()=> {alert('данный аккаунт существует')})
     
     
 } ; 

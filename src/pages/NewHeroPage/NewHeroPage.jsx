@@ -1,15 +1,15 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import "./NewHeroPage.css";
 import { SelectBox,Input, Counter} from '../../components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getDataFromAPI } from '../../hooks/use-api';
-import { useDispatch } from 'react-redux';
-import { loadHero } from '../../store/slices/heroSilce';
+
 import { writeHero } from '../../hooks/use-dataBase';
 
 function NewHeroPage() {
   const navigate = useNavigate();
+  
   const [heroRace ,setHeroRace] = useState();
   const [heroClass ,setHeroClass] = useState();  
   const [name ,setName] = useState();
@@ -42,8 +42,10 @@ function NewHeroPage() {
   }
 
   const saveHero = () => { 
+      
      if(!!name & !!heroRace & !!heroClass & (cha + con + dex + int + str + wis ) == 40){ 
         writeHero(`userHero/${userId}/${heroId}` , {name , heroRace , heroClass , cha , con , dex , int , str ,wis})
+       
         navigate(`/${userId}`);
      }
      else { 

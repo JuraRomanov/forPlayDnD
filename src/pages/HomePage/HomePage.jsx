@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
-import { Link, useNavigate  } from 'react-router-dom'
+import React from 'react'
+import { useNavigate  } from 'react-router-dom'
 import { useEffect } from 'react';
 import {useAuth} from "../../hooks/use-auth"
 
-import { removeUser } from '../../store/slices/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../../components/Header/Header';
 import "./homepage.css"
-import {setHero, setParam,loadHero } from '../../store/slices/heroSilce';
-import { child, get, getDatabase, ref } from 'firebase/database';
+import {loadHero } from '../../store/slices/heroSilce';
+
 import {  loadHeroFromDB } from '../../hooks/use-dataBase';
 import Gallery from '../../components/Gallery/Gallery';
 
@@ -20,7 +19,7 @@ function HomePage() {
 
   
   let navigate = useNavigate() ; 
-  const {isAuth,email,id}= useAuth()  ; 
+  const {isAuth,id}= useAuth()  ; 
   const dispatch = useDispatch() ;
   
   
@@ -37,7 +36,7 @@ function HomePage() {
     }
     
     const herosId = Object.keys(allData) ;
-    const heroData ={} ; 
+   
     herosId.map(heroId => {
       dispatch(loadHero({heroId , heroData : allData[heroId]}));
     })

@@ -65,6 +65,8 @@ export const heroSlice = createSlice({
             }
             
         },
+
+       
     }
 })
 

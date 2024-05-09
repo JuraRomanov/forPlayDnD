@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import image from "./source/images2.png";
 
 function GalleryItem({nameCard = "Gallery Item Name", fullData = {} }) {
-    const [isActive  , setIsActive] = useState(true)
+    const [isActive  , setIsActive] = useState(false)
     let data = [] ;
     
 
